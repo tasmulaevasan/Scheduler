@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>icon/books.png</file>
+    <file>icon/burger-bar.png</file>
+    <file>icon/gears.png</file>
+    <file>icon/multiple-users-silhouette.png</file>
+    <file>icon/predictive.png</file>
+    <file>icon/schedule.png</file>
+    <file>icon/search.png</file>
+    <file>icon/sign-out-option.png</file>
+    <file>icon/teacher.png</file>
+  </qresource>
+</RCC>
