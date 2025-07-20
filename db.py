@@ -14,6 +14,16 @@ def _get_connection():
                subjects TEXT
            )"""
     )
+    conn.execute(
+        """CREATE TABLE IF NOT EXISTS classes(
+               id INTEGER PRIMARY KEY AUTOINCREMENT,
+               grade INTEGER,
+               letter TEXT,
+               teacher TEXT,
+               students INTEGER,
+               notes TEXT
+           )"""
+    )
     return conn
 
 
@@ -48,6 +58,48 @@ def save_teachers(teachers):
                 int(teacher.get("is_active", True)),
                 teacher.get("name", ""),
                 json.dumps(teacher.get("subjects", [])),
+            ),
+        )
+    conn.commit()
+    conn.close()
+
+
+def load_classes():
+    """Return list of class records from database."""
+    conn = _get_connection()
+    cur = conn.cursor()
+    cur.execute(
+        "SELECT grade, letter, teacher, students, notes FROM classes ORDER BY grade, letter"
+    )
+    records = []
+    for row in cur.fetchall():
+        records.append(
+            {
+                "grade": row[0],
+                "letter": row[1],
+                "teacher": row[2] or "",
+                "students": row[3] or 0,
+                "notes": row[4] or "",
+            }
+        )
+    conn.close()
+    return records
+
+
+def save_classes(classes):
+    """Save list of class records to database."""
+    conn = _get_connection()
+    cur = conn.cursor()
+    cur.execute("DELETE FROM classes")
+    for cls in classes:
+        cur.execute(
+            "INSERT INTO classes(grade, letter, teacher, students, notes) VALUES (?, ?, ?, ?, ?)",
+            (
+                cls.get("grade"),
+                cls.get("letter"),
+                cls.get("teacher", ""),
+                cls.get("students", 0),
+                cls.get("notes", ""),
             ),
         )
     conn.commit()
