@@ -2,66 +2,59 @@
 <ui version="4.0">
  <class>Form</class>
  <widget class="QWidget" name="Form">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>400</width>
-    <height>188</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Form</string>
-  </property>
-  <widget class="QWidget" name="horizontalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>90</y>
-     <width>396</width>
-     <height>80</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QLabel" name="index_label">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QCheckBox" name="isActive_checkbox">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="name_edit"/>
-    </item>
-    <item>
-     <widget class="QComboBox" name="subjects_comboBox"/>
-    </item>
-    <item>
-     <widget class="QPushButton" name="add_subject_btn">
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QListWidget" name="subject_list"/>
-    </item>
-    <item>
-     <widget class="QPushButton" name="delete_btn">
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QLabel" name="index_label">
+     <property name="minimumWidth">
+      <number>20</number>
+     </property>
+     <property name="text">
+      <string>1</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="isActive_checkbox">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="name_edit">
+     <property name="placeholderText">
+      <string>ФИО</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QComboBox" name="subjects_comboBox"/>
+   </item>
+   <item>
+    <widget class="QPushButton" name="add_subject_btn">
+     <property name="text">
+      <string>+</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QListWidget" name="subject_list">
+     <property name="maximumHeight">
+      <number>60</number>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="delete_btn">
+     <property name="text">
+      <string>Удалить</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>
